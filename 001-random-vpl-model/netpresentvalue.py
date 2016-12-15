@@ -7,11 +7,14 @@ Created on Fri Dec 09 15:43:52 2016
 
 import random
 
-def fc(minimo_custo, maximo_custo, minimo_faturamento, maximo_faturamento, indice_custo, indice_faturamento, inv, invp,n):
+def fc(minimo_custo, maximo_custo, minimo_faturamento, maximo_faturamento, 
+       indice_custo, indice_faturamento, inv, invp,n):
     fc=[]
     j=0
     while j < n:
-        fc.append(random.uniform(minimo_faturamento,maximo_faturamento)*indice_faturamento-random.uniform(minimo_custo,maximo_custo)*indice_custo)
+        fc.append(random.uniform(minimo_faturamento,maximo_faturamento)*
+                  indice_faturamento-random.uniform(minimo_custo,maximo_custo)*
+                    indice_custo)
         if j == invp:
             fc[j]=fc[j]-inv
         j=j+1
@@ -24,7 +27,8 @@ def vpl(fc, i):
     return vpl  
 
 def modelvpl(indice_custo, indice_faturamento,i):
-    fcx = fc(1000, 1200, 1500, 1700, indice_custo, indice_faturamento, random.uniform(4000,6000), 0,20)
+    fcx = fc(1000, 1200, 1500, 1700, indice_custo, indice_faturamento,
+             random.uniform(4000,6000), 0,20)
     output = vpl(fcx,i)
     return {'y':output}
     
